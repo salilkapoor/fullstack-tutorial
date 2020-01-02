@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import Button from '../components/button';
-// import { GET_LAUNCH } from './cart-item';
+import { GET_LAUNCH } from './cart-item';
 
 const BOOK_TRIPS = gql`
   mutation BookTrips($launchIds: [ID]!) {
@@ -23,7 +23,7 @@ export default function BookTrips({ cartItems }) {
     BOOK_TRIPS,
     {
       refetchQueries: cartItems.map(launchId => ({
-        // query: GET_LAUNCH,
+        query: GET_LAUNCH,
         variables: { launchId },
       })),
 
