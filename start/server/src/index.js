@@ -13,6 +13,9 @@ const isEmail = require("isemail");
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  engine: {
+    apiKey: process.env["ENGINE_API_KEY"]
+  },
   context: async ({ req }) => {
     // simple auth check on every request
     const auth = (req.headers && req.headers.authorization) || "";
